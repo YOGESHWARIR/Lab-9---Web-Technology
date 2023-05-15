@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, {Component} from 'react';
 
@@ -27,9 +26,3 @@ class Uncontrolled extends React.Component{
 }
 export default Uncontrolled;
 
-
-
-
-
-
-export default App;
