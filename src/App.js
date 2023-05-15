@@ -1,28 +1,32 @@
 import './App.css';
 import React, {Component} from 'react';
 
-class Uncontrolled extends React.Component{
+class Controlled extends React.Component{
   constructor(props){
     super(props);
-    this.updateSubmit=this.updateSubmit.bind(this);
-    this.input=React.createRef();
+    this.state={value: ''};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  updateSubmit(event){
-    alert('You have entered the username and college name successfully');
+  handleChange (event){
+    this.setState({value: event.target.value});
+  }
+  handleSubmit (event){
+    alert('You have successfully submitted the input' + this.state.value);
     event.preventDefault();
   }
   render()
   {
     return(
-      <form onSubmit={this.updateSubmit}>
-        <h1>Uncontrolled form Example</h1>
+      <form onSubmit={this.handleSubmit}>
+        <h2>Controlled form Example</h2>
         <label>Name:<input type="text" ref={this.input}/></label>
         <br></br>
-        <label>College Name:<input type="text" ref={this.input}/></label>
+        <label>College Name:<input type="text" ref={this.input}/></label><br></br>
         <input type="submit" value="Submit"/>
       </form>
     );
   }
 }
-export default Uncontrolled;
+export default Controlled;
 
